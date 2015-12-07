@@ -12,7 +12,12 @@ Written by Christopher Laws, March, 2013.
 */
 
 #include "BH1750.h"
+
+#if defined(__AVR__)
 #include <util/delay.h>
+#elif defined(ESP8266)
+#define _delay_ms delay
+#endif
 
 
 BH1750::BH1750() {
